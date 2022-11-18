@@ -1,5 +1,7 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
+import { Contact } from "./entity/Contact";
+import { Person } from "./entity/Person";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -10,7 +12,7 @@ export const AppDataSource = new DataSource({
   database: "bravi",
   synchronize: true,
   logging: false,
-  entities: [],
+  entities: [Person, Contact],
   migrations: [],
   subscribers: [],
 });
