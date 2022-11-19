@@ -12,7 +12,7 @@ exports.createContact = async (contact: Contact) => {
   return await contactRepository.insert(contact);
 };
 
-exports.updateContactById = async (contactId: number, contact: Contact) => {,
+exports.updateContactById = async (contactId: number, contact: Contact) => {
   const errors = await validate(contact);
   if (errors.length) {
     throw new Error(`Validation failed!`);
