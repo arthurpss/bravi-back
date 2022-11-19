@@ -21,6 +21,9 @@ export class Contact {
   @Column({ unique: true })
   contact!: string;
 
-  @ManyToOne(() => Person, (person) => person.contacts, { nullable: false })
+  @ManyToOne(() => Person, (person) => person.contacts, {
+    nullable: false,
+    onDelete: "CASCADE",
+  })
   person!: Person;
 }

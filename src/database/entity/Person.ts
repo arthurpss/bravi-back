@@ -11,6 +11,9 @@ export class Person {
   })
   name!: string;
 
-  @OneToMany(() => Contact, (contact) => contact.person, { eager: true })
+  @OneToMany(() => Contact, (contact) => contact.person, {
+    eager: true,
+    onDelete: "CASCADE",
+  })
   contacts!: Contact[];
 }
