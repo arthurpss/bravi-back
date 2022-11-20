@@ -4,12 +4,12 @@ import { Contact } from "../database/entity/Contact";
 
 const contactRepository = AppDataSource.getRepository(Contact);
 
-exports.createContact = async (contact: Contact) => {
-  const errors = await validate(contact);
+exports.createContacts = async (contacts: Contact[]) => {
+  const errors = await validate(contacts);
   if (errors.length) {
     throw new Error(`Validation failed!`);
   }
-  return await contactRepository.insert(contact);
+  return await contactRepository.insert(contacts);
 };
 
 exports.updateContactById = async (contactId: number, contact: Contact) => {

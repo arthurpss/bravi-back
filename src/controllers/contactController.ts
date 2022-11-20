@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 const contactService = require("../services/contactService");
 
-exports.createContact = async (request: Request, response: Response) => {
+exports.createContacts = async (request: Request, response: Response) => {
   try {
-    return response.json(await contactService.createContact(request.body));
+    return response.json(await contactService.createContacts(request.body));
   } catch (error) {
-    console.log("Error at [createContact]: ", error);
+    console.log("Error at [createContacts]: ", error);
     return response.status(500).json({ error: error });
   }
 };
