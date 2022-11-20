@@ -24,6 +24,17 @@ exports.updateContactById = async (request: Request, response: Response) => {
   }
 };
 
+exports.updateContacts = async (request: Request, response: Response) => {
+  const contacts = request.body;
+
+  try {
+    return response.json(await contactService.updateContacts(contacts));
+  } catch (error) {
+    console.log("Error at [updateContacts]: ", error);
+    return response.status(500).json({ error: error });
+  }
+};
+
 exports.deleteContactById = async (request: Request, response: Response) => {
   try {
     return response.json(
@@ -31,6 +42,15 @@ exports.deleteContactById = async (request: Request, response: Response) => {
     );
   } catch (error) {
     console.log("Error at [deleteContactById]: ", error);
+    return response.status(500).json({ error: error });
+  }
+};
+
+exports.deleteContacts = async (request: Request, response: Response) => {
+  try {
+    return response.json(await contactService.deleteContactsById(request.body));
+  } catch (error) {
+    console.log("Error at [deleteContacts]: ", error);
     return response.status(500).json({ error: error });
   }
 };

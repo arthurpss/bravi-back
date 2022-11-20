@@ -19,6 +19,17 @@ exports.getAllPersons = async (request: Request, response: Response) => {
   }
 };
 
+exports.getPersonById = async (request: Request, response: Response) => {
+  const personId = request.params.id;
+
+  try {
+    return response.json(await personService.getPersonById(personId));
+  } catch (error) {
+    console.log("Error at [getPersonById]: ", error);
+    return response.status(500).json({ error: error });
+  }
+};
+
 exports.updatePersonById = async (request: Request, response: Response) => {
   const personId = request.params;
   const person = request.body;
