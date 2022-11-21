@@ -9,6 +9,9 @@
     "start": "node ./dist/server.js",
     "typeorm": "typeorm-ts-node-commonjs"
   },
+  "engines": {
+    "node": "18.12.1"
+  },
   "dependencies": {
     "@types/cors": "^2.8.12",
     "class-validator": "^0.13.2",
